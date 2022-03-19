@@ -1,0 +1,43 @@
+<div class="container-fluid p-0">
+    <div class="row no-gutters align-items-start justify-content-end">
+        <img src="assets/img/brand/logo.svg" alt="logo" class="logo my-3">
+    </div>
+    <div class=" formContainer d-flex justify-content-center align-items-center my-5">
+        <div class="col-12 my-5">
+            <form #login="ngForm">
+                <div class="my-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" #email="ngModel" 
+                    [(ngModel)]="emailAddress" type="email" 
+                    class="form-control" placeholder="Enter Email ID" required email
+                    [ngClass]="{'is-valid': email.valid, 'is-invalid': email.invalid && email.touched }">
+                    <!--for invalid--><div *ngIf="email.invalid && email.touched" 
+                    class="invalid-feedback text-center">
+                    Please provide a valid Email Address.
+                    </div><!--for invalid-->
+                </div>
+                <div class="mb-5">
+                    <label for="password" class="form-label">Password</label>
+                    <br>
+                    <input type="password" class="py-2 px-3" 
+                    placeholder="Enter Password" name="password" 
+                    [ngClass]="{'is-valid': password.valid, 'is-invalid': password.invalid && password.touched }" 
+                    #password="ngModel" minlength="8" 
+                    [(ngModel)]="pass" required>
+                        <span id="forgot">Forgot?</span>
+                    <!--for invalid--><div class="invalid-feedback text-center">
+                        Password should be atleast Eight Digits
+                    </div><!--for invalid-->
+                </div>
+                    <p class="disclaimer text-center">By continuing you agree with
+                        <a class="terms px-1">Terms and conditions</a>
+                    </p>
+                <div>
+                    <button type="button" class="col-12 btn btn-primary py-3 my-3 login-button" 
+                    (click)="logIn()" 
+                    [disabled]="login.invalid">Login</button>
+                </div>                                                                      
+            </form>
+        </div> 
+    </div>
+</div>

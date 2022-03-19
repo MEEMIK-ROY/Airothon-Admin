@@ -1,0 +1,77 @@
+label,input{
+    font: normal normal medium 16px/14px Montserrat;
+    color: #707070;
+    opacity: 1;
+}
+input{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 9px;
+    width: 100%;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutters>.col {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.no-gutters>[class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+img.max-width {
+    width:100%;
+    height:100vh;
+}
+
+.logo{
+    top: 24px;
+    left: 1698px;
+    width: 205px;
+    height: 40px;
+}
+
+.disclaimer{
+    font: normal normal normal 12px Montserrat;
+    color: #707070;
+}
+
+.terms,#forgot{
+    text-decoration: underline;
+    font: normal normal normal 12px Montserrat;
+    color: #2680EB;
+    cursor: pointer;
+}
+#forgot {
+    margin: 0px -60px;
+}
+
+.login-button,.otp-button{
+    background: transparent linear-gradient(114deg, #8C3562 0%, #422042 100%) 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    border: none;
+    opacity: 1;
+    font: normal normal bold 15px Montserrat;
+    text-transform: capitalize;
+}
+.otp-button{
+    background: none;
+    border: 3px solid #422042;
+    color: #422042;
+}
+
+.or{
+    font: normal normal 600 16px/14px Montserrat;
+    color: #707070;
+    opacity: 1;
+}
+.formContainer{
+    max-width:500px;
+    margin:0 auto;
+}

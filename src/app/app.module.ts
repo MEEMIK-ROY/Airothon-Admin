@@ -6,18 +6,24 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { ToastrModule } from 'ngx-toastr';
 
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatIconModule } from "@angular/material/icon";
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { P404Component } from './views/p404/p404.component';
 import { P500Component } from './views/p500/p500.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     P404Component,
-    P500Component
+    P500Component,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +31,8 @@ import { P500Component } from './views/p500/p500.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
+    MatIconModule,
     ToastrModule.forRoot()
   ],
   providers: [],

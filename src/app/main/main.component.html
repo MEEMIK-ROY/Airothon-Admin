@@ -1,0 +1,27 @@
+<mat-sidenav-container>
+
+    <mat-sidenav mode="side" opened class="leftNav text-center py-3">
+      <button mat-button class="menu-button" routerLink="/" routerLinkActive="active" #rla="routerLinkActive">
+        <img src="assets/images/logo.png" class="logo py-4">
+      </button>
+      <div *ngFor="let items of navItems; let i = index">
+        <a [routerLink]="items.url">
+          <mat-icon routerLinkActive="active" style="color: grey;">{{items.icon}}</mat-icon>
+        </a>
+      </div>
+      <div>
+        <a (click)="logout()">
+          <mat-icon style="color: grey;">logout</mat-icon>
+        </a>
+      </div>
+    </mat-sidenav>
+  
+    <div style="background: #F1F1F1;" class="w-100 h-auto">
+  
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+  
+    </div>
+  
+  </mat-sidenav-container>

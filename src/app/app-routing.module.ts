@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthGuard } from "./services/auth.guard";
+
 import {P404Component} from './views/p404/p404.component'
 import {P500Component} from './views/p500/p500.component'
 import { LoginComponent } from "./views/login/login.component";
+
+import { MainComponent } from "./main/main.component";
 
 const routes: Routes = [
   {
@@ -25,31 +30,24 @@ const routes: Routes = [
     data: {
       title: 'Login Page'
     }
-  }
-  // {
-  //   path: 'register',
-  //   component: RegisterComponent,
-  //   data: {
-  //     title: 'Sign Up Page'
-  //   }
-  // },
-  // {
-  //   path: '',
-  //   component:MainComponent,
-  //   data: {
-  //     title: 'main'
-  //   },
-  //   canActivate : [AuthGuard],
-  //   children:[
-  //     {
-  //       path:'',
-  //       component:MainComponent,
-  //       pathMatch:'full',
-  //       redirectTo:'/dashboard',
-  //       data:{
-  //         title:'main'
-  //       }
-  //     },
+  },
+  {
+    path: '',
+    component:MainComponent,
+    data: {
+      title: 'main'
+    },
+    canActivate : [AuthGuard],
+    children:[
+      {
+        path:'',
+        component:MainComponent,
+        pathMatch:'full',
+        // redirectTo:'/dashboard',
+        data:{
+          title:'main'
+        }
+      }
   //     {
   //       path : 'dashboard',
   //       component:DashboardComponent,
@@ -69,8 +67,8 @@ const routes: Routes = [
   //       component:WalletComponent,
   //       loadChildren:()=> import('./wallet/wallet.module').then(m=>m.WalletModule)
   //     }
-  //   ]
-  // }
+    ]
+  }
 ];
 
 @NgModule({

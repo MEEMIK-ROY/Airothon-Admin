@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,9 @@ export class AuthService {
   getToken():string{
     // add encrytion here later
     const token:any = JSON.parse(JSON.stringify(localStorage.getItem('Token')));
-    if (new Date(token.expiresIn).toISOString() > new Date().toISOString()) {
+    const tokenExpires = localStorage.getItem('TokenExpiry')     
+    if (moment(tokenExpires?.replace(/\"/g, "")) > moment()) {
+      console.log("Bearer Token",token.token);
       return 'Bearer ' + token.token;
     } else {
         console.error("Login expired. Please login again")
@@ -40,14 +42,18 @@ export class AuthService {
     return this.http.post(this.base_url + '/login', data)
       .pipe(tap((res: any) => {
         //     // add encrytion here later
+        const tokenExpiry = moment().add(moment.duration(24,'hours'));
         localStorage.setItem('Token', JSON.stringify(res.data.auth_token));
+        localStorage.setItem('TokenExpiry',JSON.stringify(tokenExpiry));
         localStorage.setItem('User', JSON.stringify(res.data.user));
+        this.router.navigateByUrl('/');
       }));
   }
 
   logout() {
     localStorage.removeItem('Token');
     localStorage.removeItem('User');
+    localStorage.removeItem('TokenExpiry')
     this.router.navigateByUrl("/login");
   }
 }

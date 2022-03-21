@@ -1,7 +1,7 @@
 export const navItems = [
   {
     name: 'Clothes',
-    url: '/clothes',
+    url: '/cloth',
     icon: 'perm_identity',
   }
 ];

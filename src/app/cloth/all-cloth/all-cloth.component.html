@@ -1,1 +1,50 @@
-<p>all-cloth works!</p>
+<!-- <div class="row no-gutters m-2">
+    <table mat-table [dataSource]="quizDetails" class="mat-elevation-z8 w-full"  matSort #t1sort="matSort" >
+    
+        <ng-container matColumnDef="id" >
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>#TestCode</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Test Name</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.name}}</td>
+        </ng-container>      
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Start Date</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.startDate|date:'medium'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="endDate">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>End Date</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.endDate|date:'medium'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="ViewDetails">
+          <th mat-header-cell class="text-center" *matHeaderCellDef class="topRightH">Actions</th>
+          <td mat-cell class="text-center" *matCellDef="let element" class="rightSideCols">
+            <div *ngIf="isQuizEnded(element)">
+              <i class="fa px-1 fa-eye quizDetails" (click)="goToQuiz(element)" aria-hidden="true"></i>
+              <i class="fa px-1 fa-download quizDownload" (click)="downloadQuizResults(element)" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="!isQuizEnded(element)">
+              <i class="fa px-1 fa-pencil quizEdit" (click)="editQuiz(element)" aria-hidden="true"></i>
+              <i class="fa px-1 fa-trash quizDelete" (click)="deleteQuiz(element)" aria-hidden="true"></i>
+            </div>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="quizTableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: quizTableColumns;"></tr>
+  
+    </table>
+    <mat-paginator
+    (page)="pageChangeEvent($event)"
+    [pageSizeOptions]="[10, 15, 25, 50]"
+    [length]="total"
+    [pageSize]="limit"
+    showFirstLastButtons
+    >
+    </mat-paginator>
+    
+  </div>
+   -->

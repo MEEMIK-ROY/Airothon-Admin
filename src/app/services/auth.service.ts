@@ -26,10 +26,11 @@ export class AuthService {
   getToken():string{
     // add encrytion here later
     const token:any = JSON.parse(JSON.stringify(localStorage.getItem('Token')));
-    if (new Date(token.access.expires).toISOString() > new Date().toISOString()) {
-      return 'Bearer ' + token.access.token;
+    if (new Date(token.expiresIn).toISOString() > new Date().toISOString()) {
+      return 'Bearer ' + token.token;
     } else {
         console.error("Login expired. Please login again")
+        this.router.navigateByUrl("/login");
       return "Login expired. Please login again"
     }
   }
@@ -39,24 +40,14 @@ export class AuthService {
     return this.http.post(this.base_url + '/login', data)
       .pipe(tap((res: any) => {
         //     // add encrytion here later
-        localStorage.setItem('Token', JSON.stringify(res.tokens));
-        localStorage.setItem('User', JSON.stringify(res.user));
+        localStorage.setItem('Token', JSON.stringify(res.data.auth_token));
+        localStorage.setItem('User', JSON.stringify(res.data.user));
       }));
   }
 
-//   logout() {
-//     const token = JSON.parse(localStorage.getItem('Token'));
-
-//     this.http.post(this.base_url + '/institute/auth/logout', {
-//       refreshToken: token.refresh.token,
-//     }).subscribe(res => {
-
-//       localStorage.removeItem('Token');
-//       localStorage.removeItem('User');
-//     }, err => {
-//       console.log(err);
-//     })
-//     this.router.navigateByUrl('login');
-//   }
+  logout() {
+    localStorage.removeItem('Token');
+    localStorage.removeItem('User');
+    this.router.navigateByUrl("/login");
+  }
 }
-

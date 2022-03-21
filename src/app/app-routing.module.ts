@@ -8,6 +8,7 @@ import {P500Component} from './views/p500/p500.component'
 import { LoginComponent } from "./views/login/login.component";
 
 import { MainComponent } from "./main/main.component";
+import { ClothComponent } from "./cloth/cloth.component";
 
 const routes: Routes = [
   {
@@ -40,13 +41,14 @@ const routes: Routes = [
     canActivate : [AuthGuard],
     children:[
       {
+        path:'cloth',
+        component:ClothComponent,
+        loadChildren:()=>import('./cloth/cloth.module').then(m=>m.ClothModule)
+      },
+      {
         path:'',
-        component:MainComponent,
         pathMatch:'full',
-        // redirectTo:'/dashboard',
-        data:{
-          title:'main'
-        }
+        redirectTo:'/cloth'
       }
   //     {
   //       path : 'dashboard',

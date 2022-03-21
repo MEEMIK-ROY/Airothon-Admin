@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { MainComponent } from './main/main.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
+    MatButtonModule,
     ToastrModule.forRoot()
   ],
   providers: [],

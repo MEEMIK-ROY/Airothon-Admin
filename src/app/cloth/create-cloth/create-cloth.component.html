@@ -1,1 +1,69 @@
-<p>create-cloth works!</p>
+<div class="card">
+    <div class="card-header">
+        <h1 class="header">Create Cloth</h1>
+    </div>
+    <div class="card-body">
+        <form #createCloth="ngForm">
+            <div class="form-group ">
+                <label class="semi-bold">Cloth Type<span style="color: red;">*</span></label>
+                <input type="text" name="typeOfCloth" #typeOfCloth="ngModel"  [(ngModel)]="clothType" required class="form-control"
+                    placeholder="Enter type of cloth"
+                    [ngClass]="{'is-valid': typeOfCloth.valid, 'is-invalid': typeOfCloth.invalid && typeOfCloth.touched }">
+            </div>
+            <div class="form-group ">
+                <label class="semi-bold">Cloth Image URL<span style="color: red;">*</span></label>
+                <input type="text" name="clothImageUrl" #clothImageUrl="ngModel"  [(ngModel)]="clothImg" required class="form-control"
+                    placeholder="Enter URL of cloth Image"
+                    [ngClass]="{'is-valid': clothImageUrl.valid, 'is-invalid': clothImageUrl.invalid && clothImageUrl.touched }">
+            </div>
+            <div class="form-group ">
+                <label class="semi-bold">Quantity<span style="color: red;">*</span></label>
+                <input type="number" name="clothQuantity" #clothQuantity="ngModel" [(ngModel)]="qty" required class="form-control"
+                    placeholder="Enter quantity"
+                    [ngClass]="{'is-valid': clothQuantity.valid, 'is-invalid': clothQuantity.invalid && clothQuantity.touched }">
+            </div>
+            <div class="form-group ">
+                <label class="semi-bold">Cloth Description <span style="color: red;">*</span></label>
+                <textarea type="text" name="clothDescp" #clothDescp="ngModel" [(ngModel)]="description" required class="form-control"
+                    placeholder="Enter Cloth Description"
+                    [ngClass]="{'is-valid': clothDescp.valid, 'is-invalid': clothDescp.invalid && clothDescp.touched }"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="semi-bold">Size <span style="color: red;">*</span></label>
+                <select name="clothSize" #clothSize="ngModel" [(ngModel)]="size" class="form-control"
+                placeholder="Enter cloth Size"
+                [ngClass]="{'is-valid': clothSize.valid, 'is-invalid': clothSize.invalid && clothSize.touched }">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXL+">XXL+</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label class="semi-bold">Brand</label>
+                <input type="text" name="clothBrand" #clothBrand="ngModel" [(ngModel)]="brand" class="form-control"
+                    placeholder="Enter Cloth Brand"
+                    [ngClass]="{'is-valid': clothBrand.valid, 'is-invalid': clothBrand.invalid && clothBrand.touched }">
+            </div>
+            <div class="form-group ">
+                <label class="semi-bold">Color</label>
+                <input type="text" name="clothColor" #clothColor="ngModel" [(ngModel)]="color" class="form-control"
+                    placeholder="Enter Cloth Color"
+                    [ngClass]="{'is-valid': clothColor.valid, 'is-invalid': clothColor.invalid && clothColor.touched }">
+            </div>
+            <div class="form-group">
+                <label class="semi-bold">Category <span style="color: red;">*</span></label>
+                <select name="clothCategory" #clothCategory="ngModel" [(ngModel)]="categoryId" class="form-control"
+                [ngClass]="{'is-valid': clothCategory.valid, 'is-invalid': clothCategory.invalid && clothCategory.touched }">
+                    <option *ngFor="let category of categoryData" [value]="category.id">{{category.name}}</option>
+                </select>
+            </div>
+            <button [disabled]="createCloth.invalid" class="btn btn-success float-btn"
+                (click)="addCloth()">Create</button>
+        </form>
+    </div>
+</div>
+       

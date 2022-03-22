@@ -29,14 +29,6 @@ const routes: Routes = [
         },
       },
       {
-        path : 'edit/:id',
-        component : CreateClothComponent,
-        data : {
-          title : 'Edit',
-        },
-      },
-      
-      {
         path: 'details/:id',
         component: ClothDetailsComponent,
         data:{

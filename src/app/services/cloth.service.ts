@@ -17,15 +17,15 @@ export class ClothService {
   base_url=environment.baseUrl;
 
   getAllCloth(){
-    this.http.get(this.base_url+"/cloth/getAll",{headers:this.auth.getHeaders()});
+    return this.http.get(this.base_url+"/cloth/getAll",{headers:this.auth.getHeaders()});
   }
   getClothById(data:any){
-    this.http.post(this.base_url+"/cloth/getById",data,{headers:this.auth.getHeaders()});
+    return this.http.post(this.base_url+"/cloth/getById",data,{headers:this.auth.getHeaders()});
   }
   deleteClothById(data:any){
-    this.http.post(this.base_url+"/cloth/deleteById",data,{headers:this.auth.getHeaders()});
+    return this.http.post(this.base_url+"/cloth/deleteById",data,{headers:this.auth.getHeaders()});
   }
   addNewCloth(data:any){
-    this.http.post(this.base_url+"/cloth/add",data,{headers:this.auth.getHeaders()});
+    return this.http.post(this.base_url+"/cloth/add",data,{headers:this.auth.getHeaders()});
   }
 }

@@ -17,6 +17,9 @@ import { LoginComponent } from './views/login/login.component';
 import { P404Component } from './views/p404/p404.component';
 import { P500Component } from './views/p500/p500.component';
 import { MainComponent } from './main/main.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { MainComponent } from './main/main.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     ToastrModule.forRoot()
   ],
   providers: [],

@@ -1,0 +1,33 @@
+h3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #422042;
+    margin-bottom: 0;
+}
+span{
+    font-size: 18px;
+    font-weight: 600;
+    color: purple;
+}
+img{
+    height: 40%;
+    width: 40%;
+    max-width: 500px;
+    max-height: 500px
+}
+.row{
+    margin-bottom: 16px;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.no-gutters > .col {
+    padding-right: 0;
+    padding-left: 0;
+}
+.no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}

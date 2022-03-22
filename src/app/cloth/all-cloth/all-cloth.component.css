@@ -1,0 +1,74 @@
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.no-gutters > .col {
+    padding-right: 0;
+    padding-left: 0;
+}
+.no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.header{
+    padding-left: 30px;
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #422042;
+}
+td.mat-cell, th.mat-header-cell {
+    text-align: center;
+    justify-content:center;
+}
+td{
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-size: 12px;
+}
+th{
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-size: 15px;
+    color: #422042;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+:host ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+ }
+ .search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+.filter-field{
+    width: 200px;
+    font-size: 20px;
+}
+.icon{
+    font-size: 16px;
+}
+.clothDetails:hover{
+    cursor: pointer;
+    color: rgb(35, 207, 35);
+}
+.clothEdit:hover{
+    cursor: pointer;
+    color: rgb(50, 177, 209);
+}
+.clothDelete:hover{
+    cursor: pointer;
+    color:red;
+}
+.clothDownload:hover{
+    cursor: pointer;
+    color:purple;
+}
+.addButton{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

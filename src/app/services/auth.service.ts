@@ -28,8 +28,9 @@ export class AuthService {
     const token:any = JSON.parse(JSON.stringify(localStorage.getItem('Token')));
     const tokenExpires = localStorage.getItem('TokenExpiry')     
     if (moment(tokenExpires?.replace(/\"/g, "")) > moment()) {
+      console.log(JSON.parse(token).token);
       console.log("Bearer Token",token.token);
-      return 'Bearer ' + token.token;
+      return 'Bearer ' + JSON.parse(token).token;
     } else {
         console.error("Login expired. Please login again")
         this.router.navigateByUrl("/login");

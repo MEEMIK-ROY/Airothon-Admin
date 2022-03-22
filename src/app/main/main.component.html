@@ -7,11 +7,13 @@
       <div *ngFor="let items of navItems; let i = index">
         <a [routerLink]="items.url">
           <mat-icon routerLinkActive="active" style="color: grey;">{{items.icon}}</mat-icon>
+          <span class="menuItemName" routerLinkActive="active" style="color: grey;">{{items.name}}</span>
         </a>
       </div>
       <div>
         <a (click)="logout()">
           <mat-icon style="color: grey;">logout</mat-icon>
+          <span class="menuItemName" routerLinkActive="active" style="color: grey;">Logout</span>
         </a>
       </div>
     </mat-sidenav>

@@ -1,50 +1,59 @@
-<!-- <div class="row no-gutters m-2">
-    <table mat-table [dataSource]="quizDetails" class="mat-elevation-z8 w-full"  matSort #t1sort="matSort" >
+<h1 class="header">All Clothes</h1>
+<div class="row no-gutters m-2">
+  <div class="search">
+    <mat-form-field class="filter-field">
+      <input matInput type="text" (keyup)="doFilter($event)" placeholder="Search">
+    </mat-form-field>
+  </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full"  matSort>
     
-        <ng-container matColumnDef="id" >
-          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>#TestCode</th>
-          <td mat-cell class="text-center" *matCellDef="let element">{{element.id}}</td>
+        <ng-container matColumnDef="type" >
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Cloth Type</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.type}}</td>
         </ng-container>
       
-        <ng-container matColumnDef="name">
-          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Test Name</th>
-          <td mat-cell class="text-center" *matCellDef="let element">{{element.name}}</td>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Description</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.description}}</td>
         </ng-container>      
-        <ng-container matColumnDef="startDate">
-          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Start Date</th>
-          <td mat-cell class="text-center" *matCellDef="let element">{{element.startDate|date:'medium'}}</td>
+        <ng-container matColumnDef="size">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Size</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.size}}</td>
         </ng-container>
-        <ng-container matColumnDef="endDate">
-          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>End Date</th>
-          <td mat-cell class="text-center" *matCellDef="let element">{{element.endDate|date:'medium'}}</td>
+        <ng-container matColumnDef="brand">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Brand</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.brand}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="ViewDetails">
+        <ng-container matColumnDef="color">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Color</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.color}}</td>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Quantity</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.qty}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
           <th mat-header-cell class="text-center" *matHeaderCellDef class="topRightH">Actions</th>
           <td mat-cell class="text-center" *matCellDef="let element" class="rightSideCols">
-            <div *ngIf="isQuizEnded(element)">
-              <i class="fa px-1 fa-eye quizDetails" (click)="goToQuiz(element)" aria-hidden="true"></i>
-              <i class="fa px-1 fa-download quizDownload" (click)="downloadQuizResults(element)" aria-hidden="true"></i>
-            </div>
-            <div *ngIf="!isQuizEnded(element)">
-              <i class="fa px-1 fa-pencil quizEdit" (click)="editQuiz(element)" aria-hidden="true"></i>
-              <i class="fa px-1 fa-trash quizDelete" (click)="deleteQuiz(element)" aria-hidden="true"></i>
-            </div>
+            <!-- <i class="fa px-1 fa-eye clothDetails" (click)="clothDetails(element)" aria-hidden="true"></i>
+            <i class="fa px-1 fa-trash clothDelete" (click)="deleteCloth(element)" aria-hidden="true"></i> -->
+            <mat-icon class="icon clothDetails" (click)="clothDetails(element)">visibility</mat-icon>
+            <mat-icon class="icon clothDelete" (click)="deleteCloth(element)">delete</mat-icon>
           </td>
         </ng-container>
   
-        <tr mat-header-row *matHeaderRowDef="quizTableColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: quizTableColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="clothTableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: clothTableColumns;"></tr>
   
     </table>
-    <mat-paginator
-    (page)="pageChangeEvent($event)"
-    [pageSizeOptions]="[10, 15, 25, 50]"
-    [length]="total"
-    [pageSize]="limit"
-    showFirstLastButtons
-    >
+    <mat-paginator [pageSize]="6" [pageSizeOptions]="[1,2, 4, 6, 10, 20]">
     </mat-paginator>
     
   </div>
-   -->
+  <button class="btn btn-success addButton" (click)="gotoCreate()">Add New Cloth</button>
+  
+
+   

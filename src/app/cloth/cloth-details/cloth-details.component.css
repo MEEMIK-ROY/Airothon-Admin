@@ -16,6 +16,13 @@ img{
     max-width: 500px;
     max-height: 500px
 }
+.header{
+    padding-left: 30px;
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 500;
+    color: #422042;
+}
 .row{
     margin-bottom: 16px;
 }

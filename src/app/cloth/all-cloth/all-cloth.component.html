@@ -38,8 +38,6 @@
         <ng-container matColumnDef="Actions">
           <th mat-header-cell class="text-center" *matHeaderCellDef class="topRightH">Actions</th>
           <td mat-cell class="text-center" *matCellDef="let element" class="rightSideCols">
-            <!-- <i class="fa px-1 fa-eye clothDetails" (click)="clothDetails(element)" aria-hidden="true"></i>
-            <i class="fa px-1 fa-trash clothDelete" (click)="deleteCloth(element)" aria-hidden="true"></i> -->
             <mat-icon class="icon clothDetails" (click)="clothDetails(element)">visibility</mat-icon>
             <mat-icon class="icon clothDelete" (click)="deleteCloth(element)">delete</mat-icon>
           </td>

@@ -13,10 +13,6 @@ import { Router } from "@angular/router";
 })
 export class AllClothComponent implements OnInit,AfterViewInit {
   public dataSource = new MatTableDataSource<[]>();
-  instituteId: any;
-
-  // @ViewChild('t1sort', { static: false })t1sort!: MatSort;
-  // @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatSort) sort = new MatSort();
   @ViewChild(MatPaginator,{static:false}) 
   paginator!: MatPaginator;

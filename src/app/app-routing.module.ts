@@ -9,6 +9,7 @@ import { LoginComponent } from "./views/login/login.component";
 
 import { MainComponent } from "./main/main.component";
 import { ClothComponent } from "./cloth/cloth.component";
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,11 @@ const routes: Routes = [
         path:'',
         pathMatch:'full',
         redirectTo:'/cloth'
+      },
+      {
+        path:'category',
+        component:CategoryComponent,
+        loadChildren:()=>import('./category/category.module').then(m=>m.CategoryModule)
       }
   //     {
   //       path : 'dashboard',

@@ -1,0 +1,85 @@
+<h1 class="header">All Categories</h1>
+<div class="row no-gutters m-2">
+  <div class="search">
+    <mat-form-field class="filter-field">
+      <input matInput type="text" (keyup)="doFilter($event)" placeholder="Search">
+    </mat-form-field>
+  </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full"  matSort>
+    
+        <ng-container matColumnDef="name" >
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Category Name</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="slug">
+          <th mat-header-cell class="text-center" *matHeaderCellDef mat-sort-header>Slug</th>
+          <td mat-cell class="text-center" *matCellDef="let element">{{element.slug}}</td>
+        </ng-container>      
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell class="text-center" *matHeaderCellDef class="topRightH">Actions</th>
+          <td mat-cell class="text-center" *matCellDef="let element" class="rightSideCols">
+            <mat-icon class="icon categoryDelete" (click)="deleteCategory(element)">delete</mat-icon>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="categoryTableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: categoryTableColumns;"></tr>
+  
+    </table>
+    <mat-paginator [pageSize]="6" [pageSizeOptions]="[1,2, 4, 6, 10, 20]">
+    </mat-paginator>
+    
+  </div>
+  <button class="btn btn-success addButton" (click)="openModal(createCategory)">Create New Category</button>
+  
+
+  <!-- .................................................. -->
+  <!-- <ng-template #createCategory let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Create Category</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-6 fw-bold row no-gutters">Category Name</div>
+          <div class="col-6 row no-gutters">
+            <mat-form-field appearance="outline" class="col">
+                <input matInput placeholder="Enter category name" name="categoryName" #categoryName=ngModel [(ngModel)]="newCategoryName">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template> -->
+<ng-template #createCategory>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Create Category</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+      ></button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row no-gutters">
+              <div class="col-6 fw-bold row no-gutters">Category Name</div>
+              <div class="col-6 row no-gutters">
+                <mat-form-field appearance="outline" class="col">
+                    <input matInput placeholder="Enter category name" name="categoryName" #categoryName=ngModel [(ngModel)]="newCategoryName">
+                </mat-form-field>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="addNewCategory()">Create Category</button>
+    </div>
+</ng-template>
+
